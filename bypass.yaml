@@ -1,5 +1,4 @@
 payload:
-- '+.ozon.ru'
-- '+.wildberries.ru'
-- '+.wb.ru'
-- '+.wbbasket.ru'
+- GEOSITE,OZON
+- GEOSITE,WILDBERRIES
+- GEOSITE,YANDEX
