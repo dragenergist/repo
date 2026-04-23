@@ -15,7 +15,4 @@ payload:
   - DOMAIN-SUFFIX,weather.com
   - GEOIP,TELEGRAM
 #  - IP-CIDR,128.116.0.0/17
-#  - IP-CIDR,51.77.122.52/32
-#  - IP-CIDR,51.38.72.24/32
-#  - IP-CIDR,51.68.218.191/32
   
