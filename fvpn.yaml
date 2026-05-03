@@ -5,6 +5,7 @@ payload:
   - GEOSITE,TELEGRAM
   - GEOSITE,ROBLOX
   - GEOSITE,PATREON
+  - GEOSITE,YOUTUBE
   - DOMAIN-SUFFIX,e-hentai.org
   - DOMAIN-SUFFIX,ip.me
   - DOMAIN-SUFFIX,frankerfacez.com
