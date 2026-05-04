@@ -13,5 +13,6 @@ payload:
   - DOMAIN-SUFFIX,hath.network
   - DOMAIN-SUFFIX,cas.cz
   - DOMAIN-SUFFIX,weather.com
+  - DOMAIN-SUFFIX,t-ru.org
   - GEOIP,TELEGRAM
   - IP-CIDR,128.116.0.0/17
