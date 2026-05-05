@@ -16,4 +16,3 @@ payload:
   - DOMAIN-SUFFIX,weather.com
   - DOMAIN-SUFFIX,t-ru.org
   - IP-CIDR,128.116.0.0/17
-  - IP-CIDR,213.248.110.64/26
