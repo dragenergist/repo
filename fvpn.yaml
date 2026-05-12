@@ -8,8 +8,8 @@ payload:
   - GEOSITE,META
   - GEOSITE,ROBLOX
   - GEOSITE,PATREON
-#  - GEOSITE,YOUTUBE
-#  - DOMAIN-SUFFIX,googleapis.com
+  - GEOIP,ua
+  - DOMAIN-SUFFIX,ua
   - DOMAIN-SUFFIX,e-hentai.org
   - DOMAIN-SUFFIX,ip.me
   - DOMAIN-SUFFIX,frankerfacez.com
