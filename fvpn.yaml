@@ -17,7 +17,7 @@ payload:
   - DOMAIN-SUFFIX,cas.cz
   - DOMAIN-SUFFIX,weather.com
   - DOMAIN-SUFFIX,t-ru.org
-#  - IP-CIDR,128.116.0.0/17
+  - IP-CIDR,128.116.0.0/17
 #  - IP-CIDR,142.251.150.1/32
 #  - IP-CIDR,142.251.151.1/32
 #  - IP-CIDR,142.251.152.1/32
