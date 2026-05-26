@@ -62,7 +62,7 @@ rule-providers:
     type: http
     url: 'https://github.com/dragenergist/repo/raw/refs/heads/main/block.yaml'
     interval: 600
-    proxy: HSHP_MSK_AMN
+    proxy: HSHP_AMN
     behavior: classical
     format: yaml
   
