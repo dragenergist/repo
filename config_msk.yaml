@@ -1,0 +1,97 @@
+redir-port: 1182
+tproxy-port: 1181
+mixed-port: 1080
+socks-port: 7891
+allow-lan: true
+log-level: silent
+geodata-mode: true
+geo-auto-update: true
+geo-update-interval: 24
+find-process-mode: off
+ipv6: false
+external-ui: ui
+external-controller: 0.0.0.0:9090
+keep-alive-interval: 15
+keep-alive-idle: 15
+
+profile:
+  store-selected: true
+
+sniffer:
+  enable: true
+  parse-pure-ip: true
+  sniff:
+    HTTP:
+      ports: [80, "8080-8088"]
+    TLS: 
+      ports: ["80-499", "501-4449", "4501-65535"]
+
+proxies:
+
+  - name: HSHP_MSK_AMN
+    type: direct
+    udp: true
+    ip-version: ipv4
+    interface-name: nwg1
+
+  - name: HSHP_AMN
+    type: direct
+    udp: true
+    ip-version: ipv4
+    interface-name: nwg2
+
+  - name: GOHOST_AMN
+    type: direct
+    udp: true
+    ip-version: ipv4
+    interface-name: nwg3
+
+proxy-groups:
+
+  - name: FALLBACK1
+    type: fallback
+    proxies:
+      - HSHP_MSK_AMN
+      - HSHP_AMN
+      - GOHOST_AMN
+      - DIRECT
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 30
+
+  - name: FALLBACK2
+    type: fallback
+    proxies:
+      - GOHOST_AMN
+      - HSHP_MSK_AMN
+      - DIRECT
+    url: 'https://www.gstatic.com/generate_204'
+    interval: 30
+
+rule-providers:
+  bypass:
+    type: http
+    url: 'https://github.com/dragenergist/repo/raw/refs/heads/main/bypass.yaml'
+    interval: 600
+    proxy: HSHP_MSK_AMN
+    behavior: classical
+    format: yaml
+  block:
+    type: http
+    url: 'https://github.com/dragenergist/repo/raw/refs/heads/main/block.yaml'
+    interval: 600
+    proxy: HSHP_MSK_AMN
+    behavior: classical
+    format: yaml
+  
+rules:
+  - SRC-IP-CIDR,192.168.1.115/32,GOHOST_AMN
+  - SRC-IP-CIDR,192.168.1.69/32,GOHOST_AMN
+  - SRC-IP-CIDR,172.16.82.101/32,GOHOST_AMN
+  - SRC-IP-CIDR,172.16.82.102/32,GOHOST_AMN
+  - AND,((IN-PORT,7891),(AND,((NOT,((DST-PORT,80))),(NOT,((DST-PORT,443)))))),DIRECT
+  - RULE-SET,block,REJECT
+  - DOMAIN,usher.ttvnw.net,FALLBACK2
+  - GEOSITE,GOOGLE-GEMINI,FALLBACK1
+  - GEOSITE,YOUTUBE,FALLBACK1
+  - RULE-SET,bypass,DIRECT
+  - MATCH,FALLBACK1
