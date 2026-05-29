@@ -19,7 +19,6 @@ payload:
   - DOMAIN-SUFFIX,t-ru.org
   - DOMAIN-SUFFIX,gov
   - DOMAIN-SUFFIX,edu
-  - DOMAIN-SUFFIX,scirp.org
   - IP-CIDR,128.116.0.0/17
 #  - IP-CIDR,142.251.150.1/32
 #  - IP-CIDR,142.251.151.1/32
