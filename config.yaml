@@ -22,9 +22,11 @@ sniffer:
   parse-pure-ip: true
   sniff:
     HTTP:
-      ports: [80, "8080-8088"]
+      ports: [80, 8080-8880]
     TLS: 
-      ports: ["80-499", "501-4449", "4501-65535"]
+      ports: [443, 993, 8443]
+    QUIC:
+      port: [443, 993, 8443]
 
 proxies:
 
