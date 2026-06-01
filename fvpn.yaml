@@ -8,12 +8,11 @@ payload:
   - GEOSITE,META
   - GEOSITE,ROBLOX
   - GEOSITE,PATREON
+  - GEOSITE,EHENTAI
   - GEOIP,ua
   - DOMAIN-SUFFIX,ua
-  - DOMAIN-SUFFIX,e-hentai.org
   - DOMAIN-SUFFIX,ip.me
   - DOMAIN-SUFFIX,frankerfacez.com
-  - DOMAIN-SUFFIX,hath.network
   - DOMAIN-SUFFIX,cas.cz
   - DOMAIN-SUFFIX,weather.com
   - DOMAIN-SUFFIX,t-ru.org
