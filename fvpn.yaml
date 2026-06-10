@@ -20,8 +20,8 @@ payload:
   - DOMAIN-SUFFIX,edu
   - DOMAIN-SUFFIX,rockblack.pro
   - DOMAIN-SUFFIX,nuxt.cloud
-  - DOMAIN-SUFFIX,kinozal.tv
-  - DOMAIN-SUFFIX,rutracker.org
+  - DOMAIN-KEYWORD,kinozal
+  - DOMAIN-KEYWORD,rutracker
   - IP-CIDR,128.116.0.0/17
  #  - IP-CIDR,142.251.150.1/32
 #  - IP-CIDR,142.251.151.1/32
