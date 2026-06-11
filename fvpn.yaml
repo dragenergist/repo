@@ -23,6 +23,7 @@ payload:
   - DOMAIN-KEYWORD,kinozal
   - DOMAIN-KEYWORD,rutracker
   - DOMAIN,cloudflare-ech.com
+  - DOMAIN-SUFFIX,gmx.net
   - IP-CIDR,128.116.0.0/17
  #  - IP-CIDR,142.251.150.1/32
 #  - IP-CIDR,142.251.151.1/32
