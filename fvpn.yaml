@@ -20,6 +20,8 @@ payload:
   - DOMAIN-SUFFIX,rockblack.pro
   - DOMAIN-SUFFIX,nuxt.cloud
   - DOMAIN-SUFFIX,gmx.net
+  - DOMAIN-KEYWORD,rutracker
+  - DOMAIN-SUFFIX,cloudflare-ech.com
   - IP-CIDR,142.251.150.1/32
   - IP-CIDR,142.251.151.1/32
   - IP-CIDR,142.251.152.1/32
