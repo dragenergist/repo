@@ -7,7 +7,7 @@
     "rule_set": [
       "geosite-adobe",
       "geosite-adobe-activation"
-    ],
+    ]
   },
   {
     "ip_cidr": [
