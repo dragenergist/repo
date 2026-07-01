@@ -2,20 +2,24 @@
   "version": 1,
   "rules": [
     {
+      "network": "udp",
+      "port": 443,
+      "invert": false
+    },
+    {
       "domain": [
-        "my-private-domain.com",
-        "another-custom-site.ru"
       ],
       "domain_suffix": [
-        ".custom-lan"
       ]
+      "ip_cidr": [
+          "194.221.250.0/24"
+        ],
     },
     {
       "rule_set": [
-        "geosite-yandex",
-        "geosite-adobe",
-        "geoip-yandex"
-      ]
+        "geosite-adobe-activation",
+        "geosite-adobe"
+      ],
     }
   ]
 }
