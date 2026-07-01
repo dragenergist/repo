@@ -34,7 +34,7 @@ jobs:
         run: |
           # Компилируем ваш JSON в бинарный SRS. 
           # sing-box автоматически подтянет локальные зависимости из папки ./rule-set/
-          sing-box rule-set compile --output ./block-rules.srs ./custom-src.json
+          sing-box rule-set compile --output ./block-rules.srs ./block_src.json
 
       - name: Clean up temporary files
         run: rm -rf ./rule-set
