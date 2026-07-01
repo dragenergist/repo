@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "remote_geosite_categories": [
+    "geosite-intel",
+    "geosite-category-cryptocurrency",
+    "geosite-category-ai-!cn",
+    "geosite-telegram",
+    "geosite-meta",
+    "geosite-patreon",
+    "geosite-ehentai",
+    "geosite-plex"
+  ],
+  "remote_geoip_categories": [
+    "geoip-telegram",
+    "geoip-ua"
+  ],
+  "rules": [
+        {
+      "domain": [
+        "usher.ttvnw.net"
+      ],
+      "domain_suffix": [
+        "ua",
+        "ip.me",
+        "frankerfacez.com",
+        "cas.cz",
+        "weather.com",
+        "t-ru.org",
+        "gov",
+        "edu",
+        "rockblack.pro",
+        "nuxt.cloud",
+        "gmx.net",
+        "cloudflare-ech.com",
+        "twitch.tv",
+        "playlist.ttvnw.net"
+      ],
+      "domain_keyword": [
+        "rutracker"        
+      ],
+      "ip_cidr": [
+//        "142.251.150.1/32",
+//        "142.251.151.1/32",
+//        "142.251.152.1/32",
+//        "142.251.153.1/32",
+//        "142.251.154.1/32",
+//        "142.251.155.1/32",
+//        "142.251.156.1/32",
+//        "142.251.157.1/32"
+      ]
+    }
+  ]
+}
