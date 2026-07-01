@@ -20,14 +20,6 @@ jobs:
           path: /usr/local/bin/sing-box
           key: ${{ runner.os }}-sing-box-v1
 
-      - name: Cache sing-box binary
-        id: cache-sing-box
-        uses: actions/cache@v4
-        with:
-          path: /usr/local/bin/sing-box
-          # Кэш будет обновляться только если вы вручную измените эту строку (например, при выходе новой версии)
-          key: ${{ runner.os }}-sing-box-v1
-
       - name: Install sing-box (if not cached)
         if: steps.cache-sing-box.outputs.cache-hit != 'true'
         run: curl -fsSL https://sing-box.app/install.sh | sudo sh
