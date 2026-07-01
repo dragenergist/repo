@@ -14,12 +14,6 @@
       "ip_cidr": [
         "194.221.250.0/24"
       ]
-    },
-    {
-      "import": [
-        "geosite-adobe-activation",
-        "geosite-adobe"
-      ]
     }
   ]
 }
