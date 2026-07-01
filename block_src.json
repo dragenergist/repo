@@ -1,5 +1,9 @@
 {
   "version": 1,
+  "remote_categories": [
+    "geosite-adobe-activation",
+    "geosite-adobe"
+  ],
   "rules": [
     {
       "network": "udp",
