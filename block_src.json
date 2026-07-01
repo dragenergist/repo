@@ -13,13 +13,13 @@
       ],
       "ip_cidr": [
         "194.221.250.0/24"
-      ],
+      ]
     },
     {
       "rule_set": [
         "geosite-adobe-activation",
         "geosite-adobe"
-      ],
+      ]
     }
   ]
 }
