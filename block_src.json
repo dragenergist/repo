@@ -16,7 +16,7 @@
       ]
     },
     {
-      "rule_set": [
+      "import": [
         "geosite-adobe-activation",
         "geosite-adobe"
       ]
