@@ -52,10 +52,10 @@ jobs:
             # Базовый массив для склейки JSON (начинается с текущего исходника)
             JSON_FILES=("./$SRC_FILE")
 
-            # Читаем список категорий из текущего файла
-            CATEGORIES=$(jq -r '.remote_categories[]?' "./$SRC_FILE" | tr -d '\r')
+            # Читаем список категорий GEOSITE из текущего файла
+            GEOSITE_CATEGORIES=$(jq -r '.remote_geosite_categories[]?' "./$SRC_FILE" | tr -d '\r')
 
-            for CAT in $CATEGORIES; do
+            for CAT in $GEOSITE_CATEGORIES; do
               CAT=$(echo "$CAT" | xargs)
               if [ -z "$CAT" ]; then continue; fi
 
@@ -63,6 +63,27 @@ jobs:
               DOWNLOAD_URL="https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/${CAT}.srs"
               echo "--> Attempting to download from: $DOWNLOAD_URL"
 
+              curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "$DOWNLOAD_URL"
+
+              if [ $? -ne 0 ] || [ ! -s "./rule-set/${CAT}.srs" ]; then
+                echo "ERROR: Failed to download category '${CAT}' for $SRC_FILE"
+                exit 1
+              fi
+
+              sing-box rule-set decompile --output "./rule-set/${CAT}.json" "./rule-set/${CAT}.srs"
+              JSON_FILES+=("./rule-set/${CAT}.json")
+            done
+
+             # Читаем список категорий GEOIP из текущего файла
+            GEOIP_CATEGORIES=$(jq -r '.remote_geoip_categories[]?' "./$SRC_FILE" | tr -d '\r')
+
+            for CAT in $GEOIP_CATEGORIES; do
+              CAT=$(echo "$CAT" | xargs)
+              if [ -z "$CAT" ]; then continue; fi
+
+              echo "Processing remote category: '${CAT}'"
+              DOWNLOAD_URL="https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/${CAT}.srs"
+              echo "--> Attempting to download from: $DOWNLOAD_URL"
               curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "$DOWNLOAD_URL"
 
               if [ $? -ne 0 ] || [ ! -s "./rule-set/${CAT}.srs" ]; then
