@@ -61,12 +61,16 @@ jobs:
 
             # Создаем чистую временную папку для удаленных категорий этого файла
             rm -rf ./rule-set && mkdir -p ./rule-set
+
+            # ОЧИСТКА ОТ КОММЕНТАРИЕВ: Создаем чистую временную копию исходного JSON без // и #
+            # sed удаляет строки, начинающиеся с // или #, а также вырезает комментарии в конце строк
+            sed -E 's/\/\/.*//g; s/#.*//g; /^[[:space:]]*$/d' "./$SRC_FILE" > ./clean.json
             
-            # Базовый массив для склейки JSON (начинается с текущего исходника)
-            JSON_FILES=("./$SRC_FILE")
+            # Базовый массив для склейки теперь начинается с очищенного файла
+            JSON_FILES=("./clean.json")
 
             # Читаем список категорий GEOSITE из текущего файла
-            GEOSITE_CATEGORIES=$(jq -r '.remote_geosite_categories[]?' "./$SRC_FILE" | tr -d '\r')
+            GEOSITE_CATEGORIES=$(jq -r '.remote_geosite_categories[]?' ./clean.json | tr -d '\r')
 
             for CAT in $GEOSITE_CATEGORIES; do
               CAT=$(echo "$CAT" | xargs)
@@ -88,7 +92,7 @@ jobs:
             done
 
              # Читаем список категорий GEOIP из текущего файла
-            GEOIP_CATEGORIES=$(jq -r '.remote_geoip_categories[]?' "./$SRC_FILE" | tr -d '\r')
+            GEOIP_CATEGORIES=$(jq -r '.remote_geoip_categories[]?' ./clean.json | tr -d '\r')
 
             for CAT in $GEOIP_CATEGORIES; do
               CAT=$(echo "$CAT" | xargs)
@@ -120,11 +124,8 @@ jobs:
             sing-box rule-set compile --output "./$OUTPUT_NAME" ./merged_source.json
             
             # Очищаем временные файлы перед переходом к следующему файлу в цикле
-            rm -rf ./rule-set ./merged_source.json
+            rm -rf ./rule-set ./merged_source.json ./clean.json
           done
-
-      - name: Clean up temporary files
-        run: rm -rf ./rule-set ./merged_source.json
 
       - name: Commit and Push compiled SRS
         run: |
