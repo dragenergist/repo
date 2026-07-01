@@ -33,7 +33,7 @@ jobs:
 
       - name: Dynamic Download, Merge and Compile
         run: |
-          # 1. Читаем список категорий и принудительно очищаем его от символов возврата каретки (\r)
+          # 1. Читаем список категорий и принудительно очищаем его от спецсимволов \r
           CATEGORIES=$(jq -r '.remote_categories[]?' ./block_src.json | tr -d '\r')
           
           # Создаем базовый массив с вашим локальным файлом
@@ -49,12 +49,13 @@ jobs:
             
             echo "Processing remote category: '${CAT}'"
             
-            # Скачиваем бинарный .srs файл с явным таймаутом
-            curl -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "https://githubusercontent.com{CAT}.srs"
+            # Скачиваем бинарный .srs файл из стабильного комьюнити репозитория lyc8503
+            # Флаг -f заставит curl выдать ошибку, если сервер ответит 404
+            curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "https://github.com{CAT}.srs"
             
-            # Проверяем, скачался ли файл успешно перед декомпиляцией
-            if [ ! -f "./rule-set/${CAT}.srs" ] || [ ! -s "./rule-set/${CAT}.srs" ]; then
-              echo "ERROR: Failed to download category ${CAT}"
+            # Проверяем, скачался ли файл успешно
+            if [ $? -ne 0 ] || [ ! -s "./rule-set/${CAT}.srs" ]; then
+              echo "ERROR: Failed to download category '${CAT}'. Check if the name is correct."
               exit 1
             fi
             
@@ -65,7 +66,7 @@ jobs:
             JSON_FILES+=("./rule-set/${CAT}.json")
           done
 
-          # 3. Склеиваем правила из всех файлов (используем безопасный метод фильтрации)
+          # 3. Склеиваем правила из всех файлов
           jq -s '
             {
               version: 1,
