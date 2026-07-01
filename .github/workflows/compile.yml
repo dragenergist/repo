@@ -33,18 +33,30 @@ jobs:
 
       - name: Dynamic Download, Merge and Compile
         run: |
-          # 1. Читаем список категорий из вашего block_src.json
-          CATEGORIES=$(jq -r '.remote_categories[]?' ./block_src.json)
+          # 1. Читаем список категорий и принудительно очищаем его от символов возврата каретки (\r)
+          CATEGORIES=$(jq -r '.remote_categories[]?' ./block_src.json | tr -d '\r')
           
-          # Создаем массив для путей к декомпилированным JSON-файлам
+          # Создаем базовый массив с вашим локальным файлом
           JSON_FILES=("./block_src.json")
 
           # 2. Перебираем каждую категорию в цикле
           for CAT in $CATEGORIES; do
-            echo "Processing remote category: $CAT"
+            # Убираем возможные случайные пробелы по краям
+            CAT=$(echo "$CAT" | xargs)
             
-            # Скачиваем бинарный .srs файл
-            curl -L -s -o "./rule-set/${CAT}.srs" "https://githubusercontent.com{CAT}.srs"
+            # Проверяем, что строка не пустая
+            if [ -z "$CAT" ]; then continue; fi
+            
+            echo "Processing remote category: '${CAT}'"
+            
+            # Скачиваем бинарный .srs файл с явным таймаутом
+            curl -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "https://githubusercontent.com{CAT}.srs"
+            
+            # Проверяем, скачался ли файл успешно перед декомпиляцией
+            if [ ! -f "./rule-set/${CAT}.srs" ] || [ ! -s "./rule-set/${CAT}.srs" ]; then
+              echo "ERROR: Failed to download category ${CAT}"
+              exit 1
+            fi
             
             # Декомпилируем его в текст
             sing-box rule-set decompile --output "./rule-set/${CAT}.json" "./rule-set/${CAT}.srs"
@@ -53,8 +65,7 @@ jobs:
             JSON_FILES+=("./rule-set/${CAT}.json")
           done
 
-          # 3. Склеиваем правила из вашего исходника и всех скачанных категорий
-          # Конструкция ${JSON_FILES[@]} автоматически подставит пути ко всем файлам
+          # 3. Склеиваем правила из всех файлов (используем безопасный метод фильтрации)
           jq -s '
             {
               version: 1,
