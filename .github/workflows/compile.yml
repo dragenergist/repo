@@ -29,7 +29,6 @@ jobs:
         if: steps.cache-sing-box.outputs.cache-hit != 'true'
         run: |
           curl -fsSL https://sing-box.app/install.sh | sudo sh
-          sing-box version
 
       - name: Dynamic Download, Merge and Compile
         run: |
