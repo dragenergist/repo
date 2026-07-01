@@ -47,7 +47,7 @@ jobs:
             if [ -z "$CAT" ]; then continue; fi
 
             # ФОРМИРУЕМ ССЫЛКУ В ПЕРЕМЕННУЮ
-            DOWNLOAD_URL="https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set${CAT}.srs"
+            DOWNLOAD_URL="https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/${CAT}.srs"
             
             # ЭТА КОМАНДА ВЫВЕДЕТ ПОЛНЫЙ URL В ЛОГ GITHUB ACTIONS
             echo "--> Attempting to download from: $DOWNLOAD_URL"
