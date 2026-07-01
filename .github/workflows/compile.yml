@@ -3,8 +3,8 @@ name: Compile sing-box Rule-Set
 on:
   push:
     paths:
-      - 'block_src.json' # Запускать сборку только при изменении исходника
-  workflow_dispatch: # Позволяет запустить сборку вручную кнопкой в интерфейсе GitHub
+      - 'block_src.json'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,36 +13,45 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Create temporary directory for components
-        run: mkdir -p ./tmp ./rule-set
-
-      - name: Download Remote Categories
-        run: |
-          # Скачиваем готовые srs-файлы категорий от MetaCubeX или lyc8503
-          # Они обновляются автоматически каждые 24 часа
-          curl -L -o ./rule-set/geosite-adobe-activation.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe-activation.srs
-          curl -L -o ./rule-set/geosite-adobe.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe.srs
+      - name: Create temporary directory
+        run: mkdir -p ./rule-set
 
       - name: Install sing-box
         run: |
-          # Скачиваем и запускаем официальный скрипт установки
-          curl -fsSL https://sing-box.app/install.sh | sudo sh
-          # Проверяем, что программа установилась корректно
+          curl -fsSL https://sing-box.app | sudo sh
           sing-box version
 
-      - name: Compile Rule-Set
+      - name: Download and Decompile Adobe Rules
         run: |
-          # Компилируем ваш JSON в бинарный SRS. 
-          # sing-box автоматически подтянет локальные зависимости из папки ./rule-set/
-          sing-box rule-set compile --output ./block-rules.srs ./block_src.json
+          # 1. Скачиваем официальные бинарные .srs файлы от SagerNet
+          curl -L -o ./rule-set/adobe-activation.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe-activation.srs
+          curl -L -o ./rule-set/adobe.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe.srs
+
+          # 2. Декомпилируем их обратно в текстовый JSON формат sing-box
+          sing-box rule-set decompile --output ./rule-set/adobe-activation.json ./rule-set/adobe-activation.srs
+          sing-box rule-set decompile --output ./rule-set/adobe.json ./rule-set/adobe.srs
+
+      - name: Merge and Compile Rule-Set
+        run: |
+          # 3. Извлекаем массивы правил из скачанных файлов Adobe
+          # 4. Объединяем их с вашим block_src.json в один гигантский временной файл с помощью jq
+          jq -s '
+            {
+              version: 1,
+              rules: (.[0].rules + .[1].rules + .[2].rules)
+            }
+          ' ./block_src.json ./rule-set/adobe-activation.json ./rule-set/adobe.json > ./merged_source.json
+
+          # 5. Компилируем получившийся монолитный JSON в итоговый бинарный block-rules.srs
+          sing-box rule-set compile --output ./block-rules.srs ./merged_source.json
 
       - name: Clean up temporary files
-        run: rm -rf ./rule-set
+        run: rm -rf ./rule-set ./merged_source.json
 
       - name: Commit and Push compiled SRS
         run: |
-          git config --local user.email "github-actions[bot]@://github.com"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add block-rules.srs
-          git diff-index --quiet HEAD || git commit -m "Automated build: Update rules.srs"
+          git diff-index --quiet HEAD || git commit -m "Automated build: Update block-rules.srs"
           git push
