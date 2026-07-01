@@ -1,1 +1,21 @@
-
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "my-private-domain.com",
+        "another-custom-site.ru"
+      ],
+      "domain_suffix": [
+        ".custom-lan"
+      ]
+    },
+    {
+      "rule_set": [
+        "geosite-yandex",
+        "geosite-adobe",
+        "geoip-yandex"
+      ]
+    }
+  ]
+}
