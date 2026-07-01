@@ -16,7 +16,17 @@ jobs:
       - name: Create temporary directory
         run: mkdir -p ./rule-set
 
+      - name: Cache sing-box binary
+        id: cache-sing-box
+        uses: actions/cache@v4
+        with:
+          path: /usr/local/bin/sing-box
+          # Кэш будет обновляться только если вы вручную измените эту строку (например, при выходе новой версии)
+          key: ${{ runner.os }}-sing-box-v1
+
       - name: Install sing-box
+        # Этот шаг выполнится ТОЛЬКО если файла нет в кэше
+        if: steps.cache-sing-box.outputs.cache-hit != 'true'
         run: |
           curl -fsSL https://sing-box.app/install.sh | sudo sh
           sing-box version
