@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "remote_categories": [
+  "remote_geosite_categories": [
     "geosite-ozon",
     "geosite-wildberries",
     "geosite-yandex",
@@ -10,6 +10,9 @@
     "geosite-steam",
     "geosite-twitch",
     "geosite-gaijin"
+  ],
+  "remote_geoip_categories": [
+    "geoip-ru"
   ],
   "rules": [
         {
