@@ -31,28 +31,38 @@ jobs:
           curl -fsSL https://sing-box.app/install.sh | sudo sh
           sing-box version
 
-      - name: Download and Decompile Adobe Rules
+      - name: Dynamic Download, Merge and Compile
         run: |
-          # 1. Скачиваем официальные бинарные .srs файлы от SagerNet
-          curl -L -o ./rule-set/adobe-activation.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe-activation.srs
-          curl -L -o ./rule-set/adobe.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe.srs
+          # 1. Читаем список категорий из вашего block_src.json
+          CATEGORIES=$(jq -r '.remote_categories[]?' ./block_src.json)
+          
+          # Создаем массив для путей к декомпилированным JSON-файлам
+          JSON_FILES=("./block_src.json")
 
-          # 2. Декомпилируем их обратно в текстовый JSON формат sing-box
-          sing-box rule-set decompile --output ./rule-set/adobe-activation.json ./rule-set/adobe-activation.srs
-          sing-box rule-set decompile --output ./rule-set/adobe.json ./rule-set/adobe.srs
+          # 2. Перебираем каждую категорию в цикле
+          for CAT in $CATEGORIES; do
+            echo "Processing remote category: $CAT"
+            
+            # Скачиваем бинарный .srs файл
+            curl -L -s -o "./rule-set/${CAT}.srs" "https://githubusercontent.com{CAT}.srs"
+            
+            # Декомпилируем его в текст
+            sing-box rule-set decompile --output "./rule-set/${CAT}.json" "./rule-set/${CAT}.srs"
+            
+            # Добавляем путь к файлу в список для склейки
+            JSON_FILES+=("./rule-set/${CAT}.json")
+          done
 
-      - name: Merge and Compile Rule-Set
-        run: |
-          # 3. Извлекаем массивы правил из скачанных файлов Adobe
-          # 4. Объединяем их с вашим block_src.json в один гигантский временной файл с помощью jq
+          # 3. Склеиваем правила из вашего исходника и всех скачанных категорий
+          # Конструкция ${JSON_FILES[@]} автоматически подставит пути ко всем файлам
           jq -s '
             {
               version: 1,
-              rules: (.[0].rules + .[1].rules + .[2].rules)
+              rules: ([.[] | .rules[]?] | flatten)
             }
-          ' ./block_src.json ./rule-set/adobe-activation.json ./rule-set/adobe.json > ./merged_source.json
+          ' "${JSON_FILES[@]}" > ./merged_source.json
 
-          # 5. Компилируем получившийся монолитный JSON в итоговый бинарный block-rules.srs
+          # 4. Компилируем финальный монолитный .srs файл
           sing-box rule-set compile --output ./block-rules.srs ./merged_source.json
 
       - name: Clean up temporary files
