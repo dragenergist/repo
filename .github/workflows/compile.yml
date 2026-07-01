@@ -50,7 +50,7 @@ jobs:
             
             # Скачиваем бинарный .srs файл из стабильного комьюнити репозитория lyc8503
             # Флаг -f заставит curl выдать ошибку, если сервер ответит 404
-            curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{CAT}.srs"
+            curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set{CAT}.srs"
             
             # Проверяем, скачался ли файл успешно
             if [ $? -ne 0 ] || [ ! -s "./rule-set/${CAT}.srs" ]; then
