@@ -1,1 +1,48 @@
+name: Compile sing-box Rule-Set
 
+on:
+  push:
+    paths:
+      - 'block_src.json' # Запускать сборку только при изменении исходника
+  workflow_dispatch: # Позволяет запустить сборку вручную кнопкой в интерфейсе GitHub
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create temporary directory for components
+        run: mkdir -p ./tmp ./rule-set
+
+      - name: Download Remote Categories
+        run: |
+          # Скачиваем готовые srs-файлы категорий от MetaCubeX или lyc8503
+          # Они обновляются автоматически каждые 24 часа
+          curl -L -o ./rule-set/geosite-adobe-activation.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe-activation.srs
+          curl -L -o ./rule-set/geosite-adobe.srs https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-adobe.srs
+
+      - name: Install sing-box
+        run: |
+          # Скачиваем и запускаем официальный скрипт установки
+          curl -fsSL https://sing-box.app/install.sh | sudo sh
+          # Проверяем, что программа установилась корректно
+          sing-box version
+
+      - name: Compile Rule-Set
+        run: |
+          # Компилируем ваш JSON в бинарный SRS. 
+          # sing-box автоматически подтянет локальные зависимости из папки ./rule-set/
+          sing-box rule-set compile --output ./block-rules.srs ./custom-src.json
+
+      - name: Clean up temporary files
+        run: rm -rf ./rule-set
+
+      - name: Commit and Push compiled SRS
+        run: |
+          git config --local user.email "github-actions[bot]@://github.com"
+          git config --local user.name "github-actions[bot]"
+          git add block-rules.srs
+          git diff-index --quiet HEAD || git commit -m "Automated build: Update rules.srs"
+          git push
