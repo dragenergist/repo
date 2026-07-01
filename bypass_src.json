@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "remote_categories": [
+    "geosite-ozon",
+    "geosite-wildberries",
+    "geosite-yandex",
+    "geosite-vk",
+    "geosite-avito",
+    "geosite-blizzard",
+    "geosite-steam",
+    "geosite-twitch",
+    "geosite-gaijin"
+  ],
+  "rules": [
+        {
+      "domain": [
+        "whitei.net"
+      ],
+      "domain_suffix": [
+        "ru",
+        "su",
+        "moscow"        
+      ],
+      "domain_keyword": [
+        "xn--"        
+      ],
+      "ip_cidr": [
+        "194.221.250.0/24"
+      ]
+    }
+  ]
+}
