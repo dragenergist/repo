@@ -73,7 +73,7 @@ jobs:
               if [ -z "$CAT" ]; then continue; fi
 
               echo "Processing remote category: '${CAT}'"
-              DOWNLOAD_URL="https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/${CAT}.srs"
+              DOWNLOAD_URL="https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/${CAT}.srs"
               echo "--> Attempting to download from: $DOWNLOAD_URL"
 
               curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "$DOWNLOAD_URL"
@@ -95,7 +95,7 @@ jobs:
               if [ -z "$CAT" ]; then continue; fi
 
               echo "Processing remote category: '${CAT}'"
-              DOWNLOAD_URL="https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/${CAT}.srs"
+              DOWNLOAD_URL="https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/${CAT}.srs"
               echo "--> Attempting to download from: $DOWNLOAD_URL"
               curl -f -L -s --connect-timeout 10 -o "./rule-set/${CAT}.srs" "$DOWNLOAD_URL"
 
