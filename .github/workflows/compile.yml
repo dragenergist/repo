@@ -17,13 +17,26 @@ jobs:
         id: cache-sing-box
         uses: actions/cache@v4
         with:
-          path: /usr/bin/sing-box
-          key: ${{ runner.os }}-sing-box-v1
+          path: ~/.sing-box/sing-box
+          key: ${{ runner.os }}-sing-box-v2
 
       - name: Install sing-box (if not cached)
         if: steps.cache-sing-box.outputs.cache-hit != 'true'
-        run: curl -fsSL https://sing-box.app/install.sh | sudo sh
-        
+        run: |
+          # Создаем папку в домашней директории
+          mkdir -p ~/.sing-box
+          # Скачиваем и устанавливаем
+          curl -fsSL https://sing-box.app/install.sh | sudo sh
+          # Копируем бинарник в нашу локальную папку для сохранения в кэш
+          cp /usr/bin/sing-box ~/.sing-box/sing-box
+
+      - name: Restore sing-box from cache (if cached)
+        if: steps.cache-sing-box.outputs.cache-hit == 'true'
+        run: |
+          # Если кэш сработал, копируем файл обратно в системную директорию с правами sudo
+          sudo cp ~/.sing-box/sing-box /usr/bin/sing-box
+          sudo chmod +x /usr/bin/sing-box
+          
       - name: Process All Source Files
         run: |
           
