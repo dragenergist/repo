@@ -1,8 +1,10 @@
 {
   "version": 1,
-  "remote_categories": [
+  "remote_geosite_categories": [
     "geosite-adobe-activation",
     "geosite-adobe"
+  ],
+  "remote_geoip_categories": [
   ],
   "rules": [
     {
