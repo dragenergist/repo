@@ -9,6 +9,7 @@ payload:
   - GEOSITE,EHENTAI
   - GEOSITE,PLEX
   - GEOIP,ua
+  - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
   - DOMAIN-SUFFIX,ip.me
   - DOMAIN-SUFFIX,frankerfacez.com
