@@ -12,8 +12,10 @@ payload:
 - DOMAIN-SUFFIX,poecdn.com
 - DOMAIN-SUFFIX,pool.ntp.org
 - DOMAIN,whitei.net
+- DOMAIN,time.windows.com
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
 - GEOIP,google
 - IP-CIDR,185.73.193.0/22
 - IP-CIDR,213.248.64.0/18
+- IP-CIDR,20.101.57.0/24
