@@ -10,6 +10,7 @@ payload:
 - GEOSITE,GAIJIN
 - GEOSITE,GOOGLE
 - DOMAIN-SUFFIX,poecdn.com
+- DOMAIN-SUFFIX,pool.ntp.org
 - DOMAIN,whitei.net
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
