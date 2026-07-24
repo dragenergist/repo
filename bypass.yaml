@@ -11,6 +11,7 @@ payload:
 - GEOSITE,GOOGLE
 - DOMAIN-SUFFIX,poecdn.com
 - DOMAIN,whitei.net
+- DOMAIN,flathub.org
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
 - GEOIP,google
