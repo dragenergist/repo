@@ -11,6 +11,7 @@ payload:
 - GEOSITE,GOOGLE
 - GEOSITE,GITHUB
 - GEOSITE,MOZILLA
+- GEOSITE,APPLE
 - DOMAIN-SUFFIX,poecdn.com
 - DOMAIN,whitei.net
 - DOMAIN,flathub.org
