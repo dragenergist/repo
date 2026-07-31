@@ -8,6 +8,7 @@ payload:
   - GEOSITE,PATREON
   - GEOSITE,EHENTAI
   - GEOSITE,PLEX
+  - GEOSITE,AKAMAI
   - GEOIP,ua
   - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
