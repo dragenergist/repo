@@ -9,20 +9,29 @@
     "geosite-blizzard",
     "geosite-steam",
     "geosite-twitch",
-    "geosite-gaijin"
+    "geosite-gaijin",
+    "geosite-google",
+    "geosite-github",
+    "geosite-mozilla",
+    "geosite-huawei"
   ],
   "remote_geoip_categories": [
-    "geoip-ru"
+    "geoip-ru",
+    "geoip-cn",
+    "geoip-google"
   ],
   "rules": [
         {
       "domain": [
-        "whitei.net"
+        "whitei.net",
+        "flathub.org"
       ],
       "domain_suffix": [
         "ru",
         "su",
-        "moscow"        
+        "moscow",
+        "poecdn.com",
+        "mi.com"
       ],
       "domain_keyword": [
         "xn--"        
