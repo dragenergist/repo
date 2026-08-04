@@ -114,11 +114,28 @@ jobs:
 
             echo "Merging components for $OUTPUT_NAME..."
             jq -s '
+              # Extract all rule elements across all files
+              [.[] | .rules[]?] as $all_rules |
+
+              # Helper function to collect and deduplicate arrays by key name
+              def merge_key($key):
+                [$all_rules[] | .[$key]? // []] | flatten | unique;
+
               {
                 version: 1,
-                rules: ([.[] | .rules[]?] | flatten)
-              }
-            ' "${JSON_FILES[@]}" > ./merged_source.json
+                rules: [
+                  {
+                    domain: merge_key("domain"),
+                    domain_suffix: merge_key("domain_suffix"),
+                    domain_regex: merge_key("domain_regex"),
+                    domain_keyword: merge_key("domain_keyword"),
+                    ip_cidr: merge_key("ip_cidr")
+                  }
+              # Remove keys that ended up being empty arrays []
+              | map_values(select(length > 0))
+            ]
+          }
+          ' "${JSON_FILES[@]}" > ./merged_source.json
 
             echo "Compiling $OUTPUT_NAME..."
             sing-box rule-set compile --output "./$OUTPUT_NAME" ./merged_source.json
