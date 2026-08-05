@@ -24,15 +24,15 @@
         {
       "domain": [
         "whitei.net",
-        "flathub.org",
-        "myip.com"
+        "flathub.org"
       ],
       "domain_suffix": [
         ".ru",
         ".su",
         ".moscow",
         "poecdn.com",
-        "mi.com"
+        "mi.com",
+        "myip.com"
       ],
       "domain_keyword": [
         "xn--"        
