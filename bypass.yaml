@@ -13,7 +13,6 @@ payload:
 - GEOSITE,MOZILLA
 - GEOSITE,ROBLOX
 - GEOSITE,HUAWEI
-- GEOSITE,APPLE
 - DOMAIN-SUFFIX,poecdn.com
 - DOMAIN,whitei.net
 - DOMAIN,flathub.org
