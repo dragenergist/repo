@@ -14,8 +14,8 @@ payload:
 - GEOSITE,ROBLOX
 - GEOSITE,HUAWEI
 - DOMAIN-SUFFIX,poecdn.com
-- DOMAIN,whitei.net
-- DOMAIN,flathub.org
+- DOMAIN-SUFFIX,whitei.net
+- DOMAIN-SUFFIX,flathub.org
 - DOMAIN-SUFFIX,mi.com
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
