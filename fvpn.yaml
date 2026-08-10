@@ -27,6 +27,7 @@ payload:
   - DOMAIN,usher.ttvnw.net
   - DOMAIN-SUFFIX,twitch.tv
   - DOMAIN-SUFFIX,playlist.ttvnw.net
+  - DOMAIN,4pda.to
   - IP-CIDR,142.251.150.1/32
   - IP-CIDR,142.251.151.1/32
   - IP-CIDR,142.251.152.1/32
