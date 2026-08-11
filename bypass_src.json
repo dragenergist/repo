@@ -23,15 +23,15 @@
   "rules": [
         {
       "domain": [
-        "whitei.net",
-        "flathub.org"
+        "whitei.net"
       ],
       "domain_suffix": [
         ".ru",
         ".su",
         ".moscow",
         "poecdn.com",
-        "mi.com"
+        "mi.com",
+        "flathub.org"
       ],
       "domain_keyword": [
         "xn--"        
