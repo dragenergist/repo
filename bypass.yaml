@@ -17,6 +17,7 @@ payload:
 - DOMAIN-SUFFIX,whitei.net
 - DOMAIN-SUFFIX,flathub.org
 - DOMAIN-SUFFIX,mi.com
+- DOMAIN-SUFFIX,cdntogo.net
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
 - GEOIP,cn
