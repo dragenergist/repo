@@ -9,6 +9,7 @@ payload:
   - GEOSITE,EHENTAI
   - GEOSITE,PLEX
   - GEOSITE,AKAMAI
+  - GEOSITE,YOUTUBE
   - GEOIP,ua
   - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
