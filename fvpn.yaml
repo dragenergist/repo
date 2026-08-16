@@ -10,6 +10,7 @@ payload:
   - GEOSITE,PLEX
   - GEOSITE,AKAMAI
   - GEOSITE,YOUTUBE
+  - GEOSITE,TMDB
   - GEOIP,ua
   - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
