@@ -23,7 +23,6 @@ payload:
 - GEOIP,ru
 - GEOIP,cn
 - GEOIP,google
-- IP-CIDR,185.73.193.0/22
-- IP-CIDR,213.248.64.0/18
+- IP-ASN,44386 # Ozon
 - IP-ASN,22697 # Roblox
 - IP-ASN,57976 # Blizzard
