@@ -1,0 +1,53 @@
+name: Update AdGuard Mihomo rules
+
+on:
+  schedule:
+    # Run every day at 04:00 UTC.
+    - cron: "0 4 * * *"
+
+  workflow_dispatch:
+
+  push:
+    paths:
+      - "scripts/adguard_to_mihomo.py"
+      - ".github/workflows/update-adguard-rules.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Generate Mihomo rule-set
+        run: |
+          python scripts/adguard_to_mihomo.py
+
+      - name: Show changes
+        run: |
+          git diff --stat
+          git diff -- rules/adguard-domain.txt | head -200
+
+      - name: Commit updated rule-set
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add rules/adguard-domain.txt
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git commit -m "Update AdGuard Mihomo rules"
+          git push
