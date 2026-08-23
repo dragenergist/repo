@@ -29,6 +29,7 @@ payload:
   - DOMAIN,usher.ttvnw.net
   - DOMAIN-SUFFIX,twitch.tv
   - DOMAIN-SUFFIX,playlist.ttvnw.net
+  - DOMAIN-SUFFIX,kaspi.kz
   - DOMAIN,4pda.to
   - DOMAIN,news.google.com
   - IP-CIDR,142.251.150.1/32
