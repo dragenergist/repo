@@ -21,7 +21,6 @@ payload:
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
 - GEOIP,cn
-- GEOIP,google
 - IP-ASN,44386 # Ozon
 - IP-ASN,22697 # Roblox
 - IP-ASN,57976 # Blizzard
