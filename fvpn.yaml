@@ -11,6 +11,7 @@ payload:
   - GEOSITE,AKAMAI
   - GEOSITE,YOUTUBE
   - GEOSITE,TMDB
+  - GEOSITE,GITHUB
   - GEOIP,ua
   - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
@@ -30,7 +31,7 @@ payload:
   - DOMAIN-SUFFIX,twitch.tv
   - DOMAIN-SUFFIX,playlist.ttvnw.net
   - DOMAIN,4pda.to
-  - GEOSITE,GITHUB
+  - DOMAIN-SUFFIX,psnprofiles.com 
   - IP-CIDR,142.251.150.1/32
   - IP-CIDR,142.251.151.1/32
   - IP-CIDR,142.251.152.1/32
