@@ -33,6 +33,7 @@ payload:
   - DOMAIN,4pda.to
   - DOMAIN-SUFFIX,psnprofiles.com 
   - DOMAIN-SUFFIX,tangem.org
+  - DOMAIN-SUFFIX,tangem.com
   - DOMAIN-SUFFIX,trongrid.io
   - DOMAIN-SUFFIX,stellar.org
   - DOMAIN-SUFFIX,blinklabs.xyz
