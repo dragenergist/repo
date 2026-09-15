@@ -12,6 +12,7 @@ payload:
   - GEOSITE,YOUTUBE
   - GEOSITE,TMDB
   - GEOSITE,GITHUB
+  - GEOSITE,AMAZON
   - GEOIP,ua
   - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
@@ -40,7 +41,6 @@ payload:
   - DOMAIN-SUFFIX,nownodes.io
   - DOMAIN-SUFFIX,stakek.it
   - DOMAIN-SUFFIX,moonpay.com
-  - DOMAIN-SUFFIX,amazonaws.com
   - DOMAIN-SUFFIX,p2p.org
   - IP-CIDR,142.251.150.1/32
   - IP-CIDR,142.251.151.1/32
