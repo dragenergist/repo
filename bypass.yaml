@@ -17,6 +17,7 @@ payload:
 - DOMAIN-SUFFIX,mi.com
 - DOMAIN-SUFFIX,cdntogo.net
 - DOMAIN-SUFFIX,video.beeg.com
+- DOMAIN-SUFFIX,pixeldrain.com
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - GEOIP,ru
 - GEOIP,cn
