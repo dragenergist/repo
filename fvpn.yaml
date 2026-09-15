@@ -36,7 +36,9 @@ payload:
   - DOMAIN-SUFFIX,tangem.org
   - DOMAIN-SUFFIX,tangem.com
   - DOMAIN-SUFFIX,trongrid.io
+  - DOMAIN-SUFFIX,tronscan.org
   - DOMAIN-SUFFIX,stellar.org
+  - DOMAIN-SUFFIX,stellarchain.io
   - DOMAIN-SUFFIX,blinklabs.xyz
   - DOMAIN-SUFFIX,nownodes.io
   - DOMAIN-SUFFIX,stakek.it
@@ -48,6 +50,7 @@ payload:
   - DOMAIN-SUFFIX,getblock.io
   - DOMAIN-SUFFIX,moralis.io
   - DOMAIN-SUFFIX,quicknode.pro
+  - DOMAIN-SUFFIX,blockchair.com
   - IP-CIDR,142.251.150.1/32 # Google country detection for Gemini
   - IP-CIDR,142.251.151.1/32
   - IP-CIDR,142.251.152.1/32
