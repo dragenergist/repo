@@ -1,6 +1,3 @@
 payload:
   - GEOSITE,GOOGLE
   - GEOIP,GOOGLE
-  - DOMAIN,usher.ttvnw.net
-  - DOMAIN-SUFFIX,twitch.tv
-  - DOMAIN-SUFFIX,playlist.ttvnw.net
