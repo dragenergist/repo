@@ -1,5 +1,4 @@
 payload:
-  - GEOSITE,GOOGLE-GEMINI
   - GEOSITE,GOOGLE
   - GEOIP,GOOGLE
   - DOMAIN,usher.ttvnw.net
