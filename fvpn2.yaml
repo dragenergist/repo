@@ -3,4 +3,3 @@ payload:
   - GEOSITE,GOOGLE
   - GEOIP,GOOGLE
   - GEOSITE,APPLE
-  - IP-CIDR,213.248.110.0/24 # Что-то iPhone'овское
