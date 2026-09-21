@@ -25,4 +25,5 @@ payload:
 - IP-ASN,44386 # Ozon
 - IP-ASN,22697 # Roblox
 - IP-ASN,57976 # Blizzard
+- IP-CIDR,213.248.110.0/24 # Что-то iPhone'овское
 
