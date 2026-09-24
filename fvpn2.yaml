@@ -4,4 +4,4 @@ payload:
   - GEOIP,GOOGLE
   - GEOSITE,APPLE
   - GEOSITE,SAMSUNG
- - DOMAIN-SUFFIX,ibyteimg.com
+  - DOMAIN-SUFFIX,ibyteimg.com
