@@ -50,7 +50,6 @@ payload:
   - DOMAIN-SUFFIX,quicknode.pro
   - DOMAIN-SUFFIX,blockchair.com
   - DOMAIN-SUFFIX,exchangerate-api.com
-  - DOMAIN-SUFFIX,ibyteimg.com
   - IP-CIDR,142.251.150.1/32 # Google country detection for Gemini
   - IP-CIDR,142.251.151.1/32
   - IP-CIDR,142.251.152.1/32
