@@ -15,7 +15,6 @@ payload:
   - GEOIP,ua
   - GEOIP,facebook
   - DOMAIN-SUFFIX,ua
-  - DOMAIN-SUFFIX,ip.me
   - DOMAIN-SUFFIX,frankerfacez.com
   - DOMAIN-SUFFIX,cas.cz
   - DOMAIN-SUFFIX,weather.com
