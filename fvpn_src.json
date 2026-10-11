@@ -9,11 +9,15 @@
     "geosite-patreon",
     "geosite-ehentai",
     "geosite-plex",
-    "geosite-akamai"
+    "geosite-akamai",
+    "geosite-tmdb",
+    "geosite-amazon",
+    "geosite-tiktok"
   ],
   "remote_geoip_categories": [
     "geoip-telegram",
-    "geoip-ua"
+    "geoip-ua",
+    "geoip-facebook"
   ],
   "rules": [
         {
@@ -33,8 +37,30 @@
         "nuxt.cloud",
         "gmx.net",
         "cloudflare-ech.com",
+        "usher.ttvnw.net",
         "twitch.tv",
-        "playlist.ttvnw.net"
+        "playlist.ttvnw.net",
+        "4pda.to",
+        "psnprofiles.com",
+        "tangem.org",
+        "tangem.com",
+        "trongrid.io",
+        "tronscan.org",
+        "stellar.org",
+        "stellarchain.io",
+        "blinklabs.xyz",
+        "nownodes.io",
+        "stakek.it",
+        "moonpay.com",
+        "p2p.org",
+        "solscan.io",
+        "solana.com",
+        "alchemy.com",
+        "getblock.io",
+        "moralis.io",
+        "quicknode.pro",
+        "blockchair.com",
+        "exchangerate-api.com"
       ],
       "domain_keyword": [
         "rutracker"        
