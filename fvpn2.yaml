@@ -5,3 +5,5 @@ payload:
   - GEOSITE,APPLE
   - GEOSITE,SAMSUNG
   - DOMAIN-SUFFIX,geoderma.org
+  - DOMAIN-SUFFIX,xtls.github.io
+  
