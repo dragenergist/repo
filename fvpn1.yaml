@@ -3,3 +3,4 @@ payload:
   - DOMAIN-SUFFIX,twitch.tv
   - DOMAIN-SUFFIX,playlist.ttvnw.net
   - GEOSITE,TIKTOK
+  - GEOSITE,GOOGLE-GEMINI
