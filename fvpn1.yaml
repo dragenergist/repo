@@ -4,3 +4,4 @@ payload:
   - DOMAIN-SUFFIX,playlist.ttvnw.net
   - GEOSITE,TIKTOK
   - GEOSITE,GOOGLE-GEMINI
+  - GEOSITE,YOUTUBE
