@@ -11,3 +11,5 @@ payload:
   - DOMAIN,usher.ttvnw.net
   - DOMAIN,play.google.com
   - DOMAIN,upc.zztfly.com
+  - DOMAIN,doh.dns.apple.com
+
