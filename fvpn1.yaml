@@ -5,3 +5,4 @@ payload:
   - GEOSITE,TIKTOK
   - GEOSITE,GOOGLE-GEMINI
   - GEOSITE,YOUTUBE
+  - DOMAIN,gs-loc.ls-apple.com.akadns.net
