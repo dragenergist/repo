@@ -8,3 +8,4 @@ payload:
   - GEOSITE,BYBIT
   - DOMAIN-SUFFIX,mexc.com
   - DOMAIN-SUFFIX,ip.me
+  - GEOSITE,GOOGLE-GEMINI
