@@ -1,8 +1,9 @@
 payload:
-  - DOMAIN,usher.ttvnw.net
-  - DOMAIN-SUFFIX,twitch.tv
-  - DOMAIN-SUFFIX,playlist.ttvnw.net
   - GEOSITE,TIKTOK
   - GEOSITE,GOOGLE-GEMINI
   - GEOSITE,YOUTUBE
+  - DOMAIN-SUFFIX,twitch.tv
+  - DOMAIN-SUFFIX,playlist.ttvnw.net
+  - DOMAIN-SUFFIX,dscr.akamai.net
   - DOMAIN,gs-loc.ls-apple.com.akadns.net
+  - DOMAIN,usher.ttvnw.net
