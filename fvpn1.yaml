@@ -13,4 +13,6 @@ payload:
   - DOMAIN,upc.zztfly.com
   - DOMAIN,doh.dns.apple.com
   - DOMAIN,xtls.github.io
+  - DOMAIN-SUFFIX,snapchat.com
+  - DOMAIN-SUFFIX,sc-cdn.net
 
