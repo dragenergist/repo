@@ -1,6 +1,6 @@
 payload:
   - GEOSITE,TIKTOK
-#  - GEOSITE,GOOGLE-GEMINI
+  - GEOSITE,GOOGLE-GEMINI
   - GEOSITE,YOUTUBE
   - DOMAIN-SUFFIX,twitch.tv
   - DOMAIN-SUFFIX,playlist.ttvnw.net
