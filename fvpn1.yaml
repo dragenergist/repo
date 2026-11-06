@@ -15,4 +15,5 @@ payload:
   - DOMAIN,xtls.github.io
   - DOMAIN-SUFFIX,snapchat.com
   - DOMAIN-SUFFIX,sc-cdn.net
+  - DOMAIN-SUFFIX,byteglb.com
 
