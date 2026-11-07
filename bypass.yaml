@@ -29,6 +29,7 @@ payload:
 - DOMAIN-SUFFIX,ali.click
 - DOMAIN-SUFFIX,tplinkcloud.com
 - DOMAIN-SUFFIX,split.io
+- DOMAIN-SUFFIX,gmail.com
 - OR,((DOMAIN-SUFFIX,ru),(DOMAIN-SUFFIX,su),(DOMAIN-SUFFIX,moscow),(DOMAIN-WILDCARD,xn--*))
 - IP-ASN,44386 # Ozon
 - IP-ASN,22697 # Roblox
