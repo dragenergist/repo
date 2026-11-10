@@ -4,4 +4,5 @@ payload:
   - GEOSITE,ADOBE-ACTIVATION
   - GEOSITE,ADOBE
   - DOMAIN-SUFFIX,rubiconproject.com
+  - DOMAIN-SUFFIX,pingplotter.com
   - IP-CIDR,194.221.250.0/24
