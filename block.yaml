@@ -5,4 +5,5 @@ payload:
   - GEOSITE,ADOBE
   - DOMAIN-SUFFIX,rubiconproject.com
   - DOMAIN-SUFFIX,pingplotter.com
+  - DOMAIN-KEYWORD,parallels
   - IP-CIDR,194.221.250.0/24
