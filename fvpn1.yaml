@@ -18,4 +18,4 @@ payload:
   - DOMAIN-SUFFIX,byteglb.com
   - DOMAIN,iosantiabuse-pa.googleapis.com
   - DOMAIN,www.googleapis.com
-
+  - DOMAIN,maps.googleapis.com
