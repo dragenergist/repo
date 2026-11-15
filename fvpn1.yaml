@@ -16,4 +16,6 @@ payload:
   - DOMAIN-SUFFIX,snapchat.com
   - DOMAIN-SUFFIX,sc-cdn.net
   - DOMAIN-SUFFIX,byteglb.com
+  - DOMAIN,iosantiabuse-pa.googleapis.com
+  - DOMAIN,www.googleapis.com
 
